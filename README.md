@@ -21,3 +21,29 @@ AuditAI trains a credit risk model, then systematically audits it — not for ac
 3. **Live risk-aware decisioning** — the deployed app doesn't just predict, it checks new cases against known failure patterns in real time
 
 ## Architecture
+
+User submits case → Flask routes to /predict → XGBoost model scores case
+→ SHAP explains the decision → Failure audit engine checks similarity to
+known failures → Groq generates plain-English explanation + risk warning
+→ Result rendered to user
+
+## Tech Stack
+`Python` `XGBoost` `SHAP` `Flask` `Groq API (Llama)` `Power BI` `Render`
+
+## Repository Structure
+See folder tree above — `notebooks/` for the full modeling and audit process, `modules/` for the Flask app's business logic, `outputs/` for the audit taxonomy and risk assessment document.
+
+## Local Setup
+```bash
+git clone https://github.com/devanshiddc2608/auditai-model-risk-assessment.git
+cd auditai-model-risk-assessment
+pip install -r requirements.txt
+# create a .env file with GROQ_API_KEY=your_key_here
+python app.py
+```
+
+## Deployment
+Deployed on Render (free tier). Note: free tier spins down after inactivity — first load may take 30-50 seconds to wake.
+
+## Author
+Devanshi | [LinkedIn] | [Portfolio Site]
