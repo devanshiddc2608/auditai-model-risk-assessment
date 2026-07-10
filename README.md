@@ -1,7 +1,6 @@
 # AuditAI — AI Decision Failure Audit System
 
-**Live App:** [your-render-url-here]  
-![AuditAI Demo](demo.gif)
+**Live App:** [https://auditai-model-risk-assessment.onrender.com]  
 
 ## The Problem
 Most ML projects report accuracy and stop there. But in high-stakes decisions — lending, hiring, insurance — the most dangerous failures aren't the low-confidence ones a human would catch. They're the ones the model got wrong while claiming near-certainty, because those are exactly the predictions nobody double-checks.
@@ -46,4 +45,4 @@ python app.py
 Deployed on Render (free tier). Note: free tier spins down after inactivity — first load may take 30-50 seconds to wake.
 
 ## Author
-Devanshi | [LinkedIn] | [Portfolio Site]
+Devanshi | [LinkedIn][https://www.linkedin.com/in/devanshi-chauhan-879031230/] | [Portfolio Site]
