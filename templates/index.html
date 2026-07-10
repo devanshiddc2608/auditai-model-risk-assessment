@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}AuditAI — Model Failure Audit System{% endblock %}
+{% block content %}
+
+<div class="hero text-center mb-5">
+    <h1 class="display-5 fw-bold">AuditAI</h1>
+    <p class="lead">When AI is wrong with confidence, that's when it matters most.</p>
+    <p class="col-md-8 mx-auto">
+        AuditAI is a model risk assessment tool that goes beyond accuracy scores. Instead of just measuring
+        how often a credit risk model is right, it systematically hunts for the cases where the model was
+        highly confident and still wrong — then quantifies the business cost, explains the failure in plain
+        English, and warns reviewers in real time when a new case resembles a known failure pattern.
+    </p>
+    <a href="/audit" class="btn btn-lg auditai-btn-primary me-2">Try the Audit Tool</a>
+    <a href="/audit-report" class="btn btn-lg btn-outline-light">View Full Findings</a>
+</div>
+
+<div class="row text-center mb-5">
+    <div class="col-md-3 mb-3">
+        <div class="stat-card">
+            <h3>{{ stats.total_cases }}</h3>
+            <p>Test Cases Analysed</p>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="stat-card">
+            <h3>{{ stats.high_conf_error_rate }}</h3>
+            <p>High-Confidence Error Rate</p>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="stat-card">
+            <h3>{{ stats.failure_patterns }}</h3>
+            <p>Failure Patterns Identified</p>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="stat-card">
+            <h3>{{ stats.business_impact }}</h3>
+            <p>Business Impact Quantified</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="feature-card">
+            <h4>Prediction with Explanation</h4>
+            <p>Submit a case and get a model decision plus a plain-English explanation grounded in the
+            model's actual SHAP feature values — no black-box guessing.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="feature-card">
+            <h4>Failure Risk Assessment</h4>
+            <p>Every prediction is automatically checked against known high-confidence failure cases.
+            If your case resembles a past failure, you'll be warned before you trust the model's answer.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="feature-card">
+            <h4>Model Risk Narrative</h4>
+            <p>Generate a customised governance narrative — risks, regulatory considerations, and a
+            monitoring framework — for your specific organisation type and use case.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

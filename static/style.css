@@ -1,0 +1,64 @@
+body {
+    background-color: #0A1628;
+    color: #E5E7EB;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.auditai-navbar {
+    background-color: #0A1628;
+    border-bottom: 1px solid #1E293B;
+}
+
+.auditai-btn-primary {
+    background-color: #0EA5E9;
+    color: #0A1628;
+    font-weight: 600;
+    border: none;
+}
+.auditai-btn-primary:hover {
+    background-color: #0284C7;
+    color: white;
+}
+
+.stat-card, .feature-card, .insight-card {
+    background-color: #111F35;
+    border: 1px solid #1E293B;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.stat-card h3 {
+    color: #0EA5E9;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.decision-banner {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+.decision-approved {
+    background-color: rgba(16, 185, 129, 0.15);
+    border: 2px solid #10B981;
+    color: #10B981;
+}
+.decision-flagged {
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 2px solid #EF4444;
+    color: #EF4444;
+}
+
+.table-dark {
+    --bs-table-bg: #111F35;
+}
+
+footer.auditai-footer {
+    border-top: 1px solid #1E293B;
+    color: #94A3B8;
+}
+footer a {
+    color: #0EA5E9;
+    text-decoration: none;
+}

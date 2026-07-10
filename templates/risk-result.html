@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Risk Narrative Result — AuditAI{% endblock %}
+{% block content %}
+
+<h2 class="mb-3">Model Risk Narrative</h2>
+
+<div class="insight-card mb-4">
+    <pre style="white-space: pre-wrap; font-family: inherit;">{{ narrative }}</pre>
+</div>
+
+<a href="/risk-assessment" class="btn btn-outline-light">Generate Another</a>
+
+{% endblock %}

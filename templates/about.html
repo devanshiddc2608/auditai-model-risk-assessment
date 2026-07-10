@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}About — AuditAI{% endblock %}
+{% block content %}
+
+<h2 class="mb-3">Methodology</h2>
+<p>
+AuditAI treats model failures — not just model accuracy — as the primary object of study. A credit risk
+model was trained on the Give Me Some Credit dataset (150,000 applicants), then systematically audited for
+cases where it was highly confident (≥85%) and still wrong. This audit identifies root-cause failure
+patterns, quantifies their business cost, and surfaces them in real time through a live risk-aware
+decision tool — mirroring how model risk teams at banks and Big 4 advisory practices validate AI systems
+before and after deployment.
+</p>
+
+<h4 class="mt-4">Tech Stack</h4>
+<p>Python, XGBoost, SHAP, Flask, Groq API (Llama models), Power BI, Render.</p>
+
+{% endblock %}

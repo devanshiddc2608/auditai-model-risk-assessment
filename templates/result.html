@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Audit Result — AuditAI{% endblock %}
+{% block content %}
+
+{% if result.predicted_label == 1 %}
+    <div class="decision-banner decision-flagged">
+        <h2>FLAGGED FOR REVIEW</h2>
+        <p>Confidence: {{ "%.1f"|format(result.confidence * 100) }}%</p>
+    </div>
+{% else %}
+    <div class="decision-banner decision-approved">
+        <h2>APPROVED</h2>
+        <p>Confidence: {{ "%.1f"|format(result.confidence * 100) }}%</p>
+    </div>
+{% endif %}
+
+{% if calibration_warning %}
+<div class="alert alert-warning mt-3">
+    <strong>Calibration Warning:</strong> This prediction falls in a confidence band (70–85%) that our
+    audit found to be less reliable than the model's stated confidence suggests. Treat this result with
+    additional scrutiny.
+</div>
+{% endif %}
+
+{% if age_flag %}
+<div class="alert alert-warning mt-3">
+    <strong>Subgroup Flag:</strong> Applicants aged 25–40 are overrepresented in our high-confidence
+    failure analysis (1.5x expected rate). Recommend secondary review.
+</div>
+{% endif %}
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h4>Why the model decided this</h4>
+        <div class="insight-card">
+            <p>{{ explanation }}</p>
+        </div>
+
+        <h5 class="mt-4">Top Contributing Factors</h5>
+        <ul class="list-group">
+        {% for name, value in shap_pairs %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>{{ name }}</span>
+                <span class="{{ 'text-danger' if value > 0 else 'text-success' }}">
+                    {{ "%.3f"|format(value) }}
+                </span>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Failure Risk</h4>
+        {% if failure_warning %}
+        <div class="alert alert-danger">
+            {{ failure_warning }}
+        </div>
+        {% else %}
+        <div class="alert alert-success">
+            No similar past high-confidence failures found for this case.
+        </div>
+        {% endif %}
+
+        <h5 class="mt-4">Recommended Actions</h5>
+        <ol>
+            <li>Verify income and debt figures against supporting documentation.</li>
+            <li>If confidence falls in a flagged zone, escalate to a senior reviewer before final decision.</li>
+            <li>Log this case and outcome for the next model monitoring cycle.</li>
+        </ol>
+    </div>
+</div>
+
+<a href="/audit" class="btn btn-outline-light mt-4">Analyse Another Case</a>
+
+{% endblock %}

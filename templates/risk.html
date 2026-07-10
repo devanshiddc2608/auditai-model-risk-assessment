@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Model Risk Narrative — AuditAI{% endblock %}
+{% block content %}
+
+<h2 class="mb-3">Generate a Model Risk Narrative</h2>
+<p class="text-muted mb-4">Tell us your context, and AuditAI will generate a governance narrative tailored to your organisation and use case.</p>
+
+<form action="/generate-risk" method="POST">
+    <div class="mb-3">
+        <label class="form-label">Organisation Type</label>
+        <select class="form-select" name="org_type">
+            <option>Regulated Bank</option>
+            <option>Insurance Company</option>
+            <option>NBFC</option>
+            <option>HR Department at Large Corporate</option>
+            <option>Fintech Startup</option>
+            <option>Other</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Intended Use</label>
+        <select class="form-select" name="use_case">
+            <option>Credit Scoring</option>
+            <option>Insurance Underwriting</option>
+            <option>Employee Shortlisting</option>
+            <option>Fraud Detection</option>
+            <option>Customer Risk Rating</option>
+            <option>Other</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Risk Appetite</label>
+        <select class="form-select" name="risk_appetite">
+            <option>Conservative (maximise fairness and explainability)</option>
+            <option>Balanced</option>
+            <option>Aggressive (maximise accuracy)</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn auditai-btn-primary">Generate Risk Assessment</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Full Audit Report — AuditAI{% endblock %}
+{% block content %}
+
+<h2 class="mb-2">Model Failure Audit — Complete Findings</h2>
+<p class="text-muted mb-4">High-confidence error rate: 3.10% | Business impact: 48.5% of total error cost</p>
+
+<div class="table-responsive">
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>Case ID</th>
+            <th>True Label</th>
+            <th>Predicted</th>
+            <th>Confidence</th>
+            <th>Failure Category</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in taxonomy %}
+        <tr>
+            <td>{{ row.case_id }}</td>
+            <td>{{ row.true_label }}</td>
+            <td>{{ row.predicted_label }}</td>
+            <td>{{ "%.1f"|format(row.confidence * 100) }}%</td>
+            <td>{{ row.failure_category }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
