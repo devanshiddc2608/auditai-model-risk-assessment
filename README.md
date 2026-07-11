@@ -44,5 +44,8 @@ python app.py
 ## Deployment
 Deployed on Render (free tier). Note: free tier spins down after inactivity — first load may take 30-50 seconds to wake.
 
-## Author
-Devanshi | [LinkedIn][https://www.linkedin.com/in/devanshi-chauhan-879031230/] | [Portfolio Site]
+## 👩‍💻 Author
+
+**Devanshi Chauhan**  
+🔗 [LinkedIn](https://www.linkedin.com/in/devanshi-chauhan-879031230/)  
+🌐 [Portfolio](https://devanshiddc2608-github-io.onrender.com)
