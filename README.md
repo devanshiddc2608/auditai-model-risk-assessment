@@ -1,6 +1,6 @@
 # AuditAI — AI Decision Failure Audit System
 
-**Live App:** [https://auditai-model-risk-assessment.onrender.com]  
+🚀 Live App: [AuditAI Risk Assessment Tool](https://auditai-model-risk-assessment.onrender.com)
 
 ## The Problem
 Most ML projects report accuracy and stop there. But in high-stakes decisions — lending, hiring, insurance — the most dangerous failures aren't the low-confidence ones a human would catch. They're the ones the model got wrong while claiming near-certainty, because those are exactly the predictions nobody double-checks.
